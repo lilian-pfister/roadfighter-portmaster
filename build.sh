@@ -7,9 +7,8 @@ echo "Building Docker image..."
 docker build --platform linux/arm64 -t roadfighter-portmaster-build "$REPO_ROOT"
 
 echo "Extracting roadfighter.zip..."
-docker run --rm --platform linux/arm64 \
-    -v "$REPO_ROOT:/output" \
-    roadfighter-portmaster-build \
-    cp /build/roadfighter.zip /output/
+CONTAINER=$(docker create --platform linux/arm64 roadfighter-portmaster-build)
+docker cp "$CONTAINER:/build/roadfighter.zip" "$REPO_ROOT/"
+docker rm "$CONTAINER" > /dev/null
 
 echo "Done: $REPO_ROOT/roadfighter.zip"
