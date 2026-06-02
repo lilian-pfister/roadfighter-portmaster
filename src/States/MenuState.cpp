@@ -463,6 +463,7 @@ int CRoadFighter::menu_cycle()
         }
     }
 
+    menu_credits_timmer += 2;
     return MENU_STATE;
 }
 
@@ -739,7 +740,6 @@ void CRoadFighter::menu_draw(SDL_Surface* screen)
         if (menu_state == 0 || menu_state == 4)
             surface_fader(credits2_sfc, f, f, f, 0);
 
-        menu_credits_timmer += 2;
 
         if (menu_credits_timmer > screen->w)
         {
@@ -769,7 +769,4 @@ void CRoadFighter::menu_draw(SDL_Surface* screen)
         r2.y = screen->h - credits_sfc->h;
         SDL_BlitSurface(credits2_sfc, &r1, screen, &r2);
     }
-
-    SDL_Rect logo{ (Sint16)(SCREEN_X - 58), (Sint16)(SCREEN_Y - 55), 48, 45 };
-    SDL_BlitSurface(wild_spike_sfc, nullptr, screen, &logo);
 }

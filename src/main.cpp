@@ -33,7 +33,7 @@ char application_name[100];
 #ifdef _WIN32
 bool fullscreen = true;
 #else
-bool fullscreen = false;
+bool fullscreen = true;
 #endif
 
 bool quit = false;
@@ -83,7 +83,7 @@ SDL_Surface* initializeSDL(int moreflags)
 
     Sound_initialization();
 
-    pause(1000);
+
 
     SDL_Surface* screen = SDL_SetVideoMode(SCREEN_X, SCREEN_Y, COLOUR_DEPTH, flags);
     if (screen == nullptr)
