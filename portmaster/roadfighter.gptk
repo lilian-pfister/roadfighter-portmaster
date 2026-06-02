@@ -1,0 +1,29 @@
+# Road Fighter - gptokeyb controller mapping
+# Maps Retroid Pocket 5 / generic gamepad buttons → keyboard keys
+# The game uses arrow keys for steering and Space/Enter for menu navigation.
+
+[roadfighter]
+
+# ── Movement ──────────────────────────────────────────────────────────────────
+up = up
+down = down
+left = left
+right = right
+
+# D-pad also works via analog stick simulation handled by SDL12COMPAT
+leftanalogleft = left
+leftanalogright = right
+leftanalogup = up
+leftanalogdown = down
+
+# ── Accelerate / Brake ───────────────────────────────────────────────────────
+# The original game auto-accelerates; up/down arrows control speed
+a = space           # Confirm / Fire (unused in gameplay but useful in menus)
+b = escape          # Pause / back
+
+# ── Menu navigation ──────────────────────────────────────────────────────────
+start = return      # Start game / confirm
+select = escape     # Back / quit to menu
+
+# ── Hotkey: Start+Select = quit ───────────────────────────────────────────────
+# This is handled automatically by PortMaster's gptokeyb

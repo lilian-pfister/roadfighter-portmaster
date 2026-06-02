@@ -25,6 +25,8 @@
 /tmp/
 Debug/
 build/
+build-*/
+roadfighter.zip
 proguard-project.txt
 project.properties
 project.xcworkspace/

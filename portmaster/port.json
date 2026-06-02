@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "name": "roadfighter.zip",
+  "items": [
+    "roadfighter.sh",
+    "roadfighter/"
+  ],
+  "items_opt": null,
+  "attr": {
+    "title": "Road Fighter",
+    "desc": "A faithful remake of the classic 1984 Konami arcade racer. Race your car through traffic-filled roads, dodge enemy vehicles, and make it to the finish line before you run out of fuel. Originally made for MSX by Brain Games (2003), refactored and optimized by Andrey A. Ugolnik.",
+    "inst": "Ready to run. No additional files required.",
+    "genres": [
+      "racing",
+      "arcade"
+    ],
+    "porter": [
+      "Lilian Pfister"
+    ],
+    "image": {
+      "screenshot": "/roms/ports/images/roadFighter-thumb.jpg"
+    },
+    "rtr": true,
+    "runtime": null,
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ]
+  }
+}

@@ -97,3 +97,28 @@ target_link_libraries( roadfighter
     ${SDL_MIXER_LIBRARY}
     ${SDL_TTF_LIBRARY}
     )
+
+# ── PortMaster packaging ───────────────────────────────────────────────────────
+option(PORTMASTER "Configure for PortMaster package" OFF)
+
+if(PORTMASTER)
+    set_target_properties(roadfighter PROPERTIES
+        SUFFIX ".${CMAKE_SYSTEM_PROCESSOR}")
+
+    install(TARGETS roadfighter RUNTIME DESTINATION roadfighter)
+    install(DIRECTORY ${CMAKE_SOURCE_DIR}/assets/ DESTINATION roadfighter/assets)
+    install(DIRECTORY ${CMAKE_BINARY_DIR}/portmaster_libs/ DESTINATION roadfighter/libs.aarch64)
+    install(FILES
+        ${CMAKE_SOURCE_DIR}/portmaster/port.json
+        ${CMAKE_SOURCE_DIR}/portmaster/roadfighter.gptk
+        ${CMAKE_SOURCE_DIR}/portmaster/screenshot.png
+        DESTINATION roadfighter)
+    install(PROGRAMS ${CMAKE_SOURCE_DIR}/portmaster/roadfighter.sh DESTINATION .)
+
+    set(CPACK_GENERATOR "ZIP")
+    set(CPACK_PACKAGE_NAME "roadfighter")
+    set(CPACK_PACKAGE_VERSION "${VERSION}")
+    set(CPACK_INCLUDE_TOPLEVEL_DIRECTORY OFF)
+    set(CPACK_PACKAGE_FILE_NAME "roadfighter")
+    include(CPack)
+endif()
